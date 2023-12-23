@@ -1,8 +1,9 @@
 const express = require('express')
+require('dotenv').config()
 const cors = require('cors')
 const mysql = require('mysql')
 const app = express()
-const port = 5000
+// const port = 5000
 app.use(express.json())
 app.use(cors())
 
@@ -63,6 +64,6 @@ app.post('/api/post', async (req, res) => {
     }
 })
 
-app.listen(port, (err) => {
-    console.log(`server is started on port http://localhost:${port}`)
+app.listen(process.env.PORT, (err) => {
+    console.log(`server is started on port http://localhost:${process.env.PORT}`)
 })
